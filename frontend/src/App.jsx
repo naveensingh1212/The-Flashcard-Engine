@@ -10,10 +10,19 @@ export default function App() {
   return (
     <div className="min-h-screen">
       {view === "home" && (
-        <Home onStudy={(id) => { setActiveDeckId(id); setView("study"); }} refreshKey={refresh} />
+        <Home 
+          onStudy={(id) => { setActiveDeckId(id); setView("study"); }} 
+          refreshKey={refresh} 
+        />
       )}
       {view === "study" && (
-        <Study deckId={activeDeckId} onBack={() => { setView("home"); setRefresh(r => r + 1); }} />
+        <Study 
+          deckId={activeDeckId} 
+          onBack={() => { 
+            setView("home"); 
+            setRefresh(r => r + 1); // ← this already forces refresh
+          }} 
+        />
       )}
     </div>
   );

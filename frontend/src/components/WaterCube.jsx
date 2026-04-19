@@ -86,40 +86,23 @@ export default function WaterCube({ fillPercent = 0, showCloud = false, onClick 
   return (
     <div style={{position:"relative", userSelect:"none"}}>
       {showCloud && (
-  <>
-    {/* Left cloud */}
-    <div style={{
-      position:"absolute", top:"20%", right:"110%",
-      animation:"cloudPop 0.5s cubic-bezier(0.34,1.56,0.64,1) both",
-      zIndex:10, pointerEvents:"none"
-    }}>
-      <svg width="220" height="80" viewBox="0 0 220 80">
-        <ellipse cx="110" cy="38" rx="90" ry="28" fill="white" stroke="#e8e8e8" strokeWidth="1.5"/>
-        <ellipse cx="54" cy="46" rx="32" ry="20" fill="white" stroke="#e8e8e8" strokeWidth="1.5"/>
-        <ellipse cx="166" cy="46" rx="32" ry="20" fill="white" stroke="#e8e8e8" strokeWidth="1.5"/>
-        <ellipse cx="110" cy="22" rx="34" ry="22" fill="white" stroke="#e8e8e8" strokeWidth="1.5"/>
-        <text x="110" y="34" textAnchor="middle" fontSize="13" fontFamily="Nunito,sans-serif" fontWeight="800" fill="#1a1a2e">🎉 Amazing!</text>
-        <text x="110" y="52" textAnchor="middle" fontSize="11" fontFamily="Nunito,sans-serif" fontWeight="700" fill="#aaa">Drink water!</text>
-      </svg>
-    </div>
-
-    {/* Right cloud */}
-    <div style={{
-      position:"absolute", top:"20%", left:"110%",
-      animation:"cloudPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both",
-      zIndex:10, pointerEvents:"none"
-    }}>
-      <svg width="220" height="80" viewBox="0 0 220 80">
-        <ellipse cx="110" cy="38" rx="90" ry="28" fill="white" stroke="#e8e8e8" strokeWidth="1.5"/>
-        <ellipse cx="54" cy="46" rx="32" ry="20" fill="white" stroke="#e8e8e8" strokeWidth="1.5"/>
-        <ellipse cx="166" cy="46" rx="32" ry="20" fill="white" stroke="#e8e8e8" strokeWidth="1.5"/>
-        <ellipse cx="110" cy="22" rx="34" ry="22" fill="white" stroke="#e8e8e8" strokeWidth="1.5"/>
-        <text x="110" y="34" textAnchor="middle" fontSize="13" fontFamily="Nunito,sans-serif" fontWeight="800" fill="#1a1a2e">⭐ All topics</text>
-        <text x="110" y="52" textAnchor="middle" fontSize="11" fontFamily="Nunito,sans-serif" fontWeight="700" fill="#aaa">mastered!</text>
-      </svg>
-    </div>
-  </>
-)}
+        <div style={{
+          position:"absolute", top:-72, left:"50%",
+          transform:"translateX(-50%)",
+          animation:"cloudPop 0.5s cubic-bezier(0.34,1.56,0.64,1) both",
+          zIndex:10, pointerEvents:"none"
+        }}>
+          <svg width="180" height="60" viewBox="0 0 180 60">
+            <ellipse cx="90" cy="30" rx="74" ry="22" fill="white" stroke="#e8e8e8" strokeWidth="1.5"/>
+            <ellipse cx="44" cy="36" rx="26" ry="16" fill="white" stroke="#e8e8e8" strokeWidth="1.5"/>
+            <ellipse cx="136" cy="36" rx="26" ry="16" fill="white" stroke="#e8e8e8" strokeWidth="1.5"/>
+            <ellipse cx="90" cy="18" rx="28" ry="18" fill="white" stroke="#e8e8e8" strokeWidth="1.5"/>
+            <polygon points="84,50 96,50 90,60" fill="white" stroke="#e8e8e8" strokeWidth="1"/>
+            <text x="90" y="28" textAnchor="middle" fontSize="10" fontFamily="Nunito,sans-serif" fontWeight="800" fill="#1a1a2e">🎉 Amazing! Drink water!</text>
+            <text x="90" y="43" textAnchor="middle" fontSize="9" fontFamily="Nunito,sans-serif" fontWeight="700" fill="#aaa">All topics mastered!</text>
+          </svg>
+        </div>
+      )}
 
       {/* Fixed size wrapper — 200px wide, no stretching */}
       <div
