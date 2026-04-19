@@ -57,6 +57,7 @@ Frontend
 ---
 
 ## 📁 Project Structure
+```
 The Flashcard Engine/
 ├── backend/
 │   ├── main.py              # FastAPI routes
@@ -67,23 +68,26 @@ The Flashcard Engine/
 │   ├── sm2.py               # Spaced repetition algorithm
 │   ├── Dockerfile
 │   └── requirements.txt
-└── frontend/
-├── src/
-│   ├── pages/
-│   │   ├── Home.jsx     # Main dashboard
-│   │   └── Study.jsx    # Study session
-│   ├── components/
-│   │   ├── NavBar.jsx
-│   │   ├── SectionCard.jsx
-│   │   ├── MiniCard.jsx
-│   │   ├── UploadModal.jsx
-│   │   ├── WorkedExamplesPage.jsx
-│   │   └── WaterCube.jsx
-│   └── api/
-│       └── client.js    # API calls
+│
+├── frontend/
+│   ├── src/
+│   │   ├── pages/
+│   │   │   ├── Home.jsx
+│   │   │   └── Study.jsx
+│   │   │
+│   │   ├── components/
+│   │   │   ├── NavBar.jsx
+│   │   │   ├── SectionCard.jsx
+│   │   │   ├── MiniCard.jsx
+│   │   │   ├── UploadModal.jsx
+│   │   │   ├── WorkedExamplesPage.jsx
+│   │   │   └── WaterCube.jsx
+│   │   │
+│   │   └── api/
+│   │       └── client.js
+│
 └── package.json
-
----
+```
 
 ## 🔧 Running Locally
 
