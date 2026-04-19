@@ -1,4 +1,4 @@
-markdown# 🃏 The Flashcard Engine
+# 🃏 The Flashcard Engine
 
 An AI-powered flashcard generator that transforms any PDF into smart study cards using spaced repetition learning.
 
