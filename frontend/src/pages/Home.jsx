@@ -127,26 +127,14 @@ const fetchDecks = async (forceReset = false, newDeckId = null) => {
           style={{position:"absolute", bottom:"5%", right:"3%", width:"27%", height:"40%"}}
           onClick={() => setActiveSection("edge_case")} />
 
-        {/* Center */}
+                {/* Center */}
         <div style={{
           position:"absolute", top:"50%", left:"50%",
           transform:"translate(-50%,-50%)",
           display:"flex", flexDirection:"column",
           alignItems:"center", gap:12
         }}>
-          {activeDeck && (
-            <div style={{display:"flex", gap:5, flexWrap:"wrap", justifyContent:"center", width:200}}>
-              {[
-                {label:`🆕 ${counts[0]||0}`, bg:"#f0f0f5"},
-                {label:`📚 ${counts[1]||0}`, bg:"#DBEEFF"},
-                {label:`🔄 ${counts[2]||0}`, bg:"#FFF3CD"},
-                {label:`⭐ ${mastered}`,      bg:"#D4FCEB"},
-              ].map((p,i) => (
-                <span key={i} style={{padding:"4px 10px", borderRadius:999,
-                  background:p.bg, fontSize:12, fontWeight:800, color:"#333"}}>{p.label}</span>
-              ))}
-            </div>
-          )}
+          {/* Cloud goes above cube — handled inside WaterCube */}
           <WaterCube fillPercent={fillPct} showCloud={allDone} onClick={() => setShowUpload(true)} />
           {activeDeck && (
             <button onClick={() => onStudy(activeDeck.id)} style={{
@@ -161,6 +149,41 @@ const fetchDecks = async (forceReset = false, newDeckId = null) => {
           )}
         </div>
 
+                {/* Pills LEFT side — 2 pills */}
+        {activeDeck && (
+          <div style={{
+            position:"absolute", left:"32%", top:"50%",
+            transform:"translateY(-50%)",
+            display:"flex", flexDirection:"column", gap:8
+          }}>
+            {[
+              {label:`🆕 ${counts[0]||0}`, bg:"#f0f0f5"},
+              {label:`📚 ${counts[1]||0}`, bg:"#DBEEFF"},
+            ].map((p,i) => (
+              <span key={i} style={{padding:"6px 14px", borderRadius:999,
+                background:p.bg, fontSize:13, fontWeight:800, color:"#333",
+                boxShadow:"0 2px 8px rgba(0,0,0,0.08)"}}>{p.label}</span>
+            ))}
+          </div>
+        )}
+
+        {/* Pills RIGHT side — 2 pills */}
+        {activeDeck && (
+          <div style={{
+            position:"absolute", right:"32%", top:"50%",
+            transform:"translateY(-50%)",
+            display:"flex", flexDirection:"column", gap:8
+          }}>
+            {[
+              {label:`🔄 ${counts[2]||0}`, bg:"#FFF3CD"},
+              {label:`⭐ ${mastered}`,      bg:"#D4FCEB"},
+            ].map((p,i) => (
+              <span key={i} style={{padding:"6px 14px", borderRadius:999,
+                background:p.bg, fontSize:13, fontWeight:800, color:"#333",
+                boxShadow:"0 2px 8px rgba(0,0,0,0.08)"}}>{p.label}</span>
+            ))}
+          </div>
+        )}
         {/* Worked Examples button */}
         <div style={{position:"absolute", right:"3%", top:"50%", transform:"translateY(-50%)",
           display:"flex", flexDirection:"column", alignItems:"center", gap:8}}>
