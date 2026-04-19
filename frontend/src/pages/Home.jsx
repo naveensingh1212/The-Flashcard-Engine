@@ -28,23 +28,24 @@ export default function Home({ onStudy, refreshKey = 0 }) {
 
   useEffect(() => { fetchDecks(); }, [refreshKey]);
 
-  const fetchDecks = async (forceReset = false, newDeckId = null) => {
+const fetchDecks = async (forceReset = false, newDeckId = null) => {
     try {
       const data = await api.getDecks();
       setDecks(data.decks);
       if (data.decks.length > 0) {
         if (forceReset && newDeckId) {
           const d = data.decks.find(d => d.id === newDeckId);
-          if (d) loadDeck(d);
+          if (d) await loadDeck(d);
         } else {
           const d = activeDeck
             ? data.decks.find(d => d.id === activeDeck.id) || data.decks[0]
             : data.decks[0];
-          if (d) loadDeck(d);
+          // ✅ always reload deck cards too
+          if (d) await loadDeck(d);
         }
       }
     } catch (e) { console.error(e); }
-  };
+};
 
   const loadDeck = async (deck) => {
     setActiveDeck(deck);
