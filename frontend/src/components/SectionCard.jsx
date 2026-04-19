@@ -1,6 +1,6 @@
 export default function SectionCard({ section, cards, onClick, style }) {
   const count = cards.length;
-  const masteredCount = cards.filter(c => c.mastery === 3).length;
+  const masteredCount = cards.filter(c => c.mastery > 0).length;
   const pct = count ? Math.round((masteredCount / count) * 100) : 0;
 
   return (

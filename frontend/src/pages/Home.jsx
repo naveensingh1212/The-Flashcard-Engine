@@ -40,7 +40,6 @@ const fetchDecks = async (forceReset = false, newDeckId = null) => {
           const d = activeDeck
             ? data.decks.find(d => d.id === activeDeck.id) || data.decks[0]
             : data.decks[0];
-          // ✅ always reload deck cards too
           if (d) await loadDeck(d);
         }
       }
