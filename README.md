@@ -37,6 +37,7 @@ Upload any PDF → AI reads it → generates categorized flashcards → study wi
 ---
 
 ## 🧠 How It Works
+```
 PDF Upload
 ↓
 Parser Agent (PyMuPDF)
@@ -54,7 +55,7 @@ Database (SQLite)
 Frontend
 → study session with spaced repetition
 
----
+```
 
 ## 📁 Project Structure
 ```
