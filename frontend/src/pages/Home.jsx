@@ -77,13 +77,18 @@ export default function Home({ onStudy, refreshKey = 0 }) {
   };
 
   const handleDelete = async () => {
-    if (!confirm(`Delete "${activeDeck.name}"?`)) return;
-    try {
-      await api.deleteDeck(activeDeck.id);
-      setActiveDeck(null);
-      setDeckCards([]);
-      fetchDecks(true);
-    } catch (e) { alert("Delete failed: " + e.message); }
+      if (!confirm(`Delete "${activeDeck.name}"?`)) return;
+      try {
+        await api.deleteDeck(activeDeck.id);
+        setActiveDeck(null);
+        setDeckCards([]);
+        // ✅ force reset so it loads first available deck
+        const data = await api.getDecks();
+        setDecks(data.decks);
+        if (data.decks.length > 0) {
+          loadDeck(data.decks[0]);
+        }
+      } catch (e) { alert("Delete failed: " + e.message); }
   };
 
   const sectionCards = (key) => deckCards.filter(c => {
