@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --peach:  #FFC2A3;
+  --blue:   #99E5FF;
+  --pink:   #FFC2FA;
+  --green:  #89F5BF;
+  --yellow: #FFE94A;
+  --ink:    #1a1a2e;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #ffffff;
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* Grid background */
+.grid-bg {
+  background-color: #fafafa;
+  background-image:
+    linear-gradient(#e8e8f0 1px, transparent 1px),
+    linear-gradient(90deg, #e8e8f0 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Section cards */
+.section-card {
+  border-radius: 24px;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34,1.4,0.64,1),
+              box-shadow 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.section-card:hover {
+  transform: scale(1.04) translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+}
+
+/* Blur overlay */
+.blur-overlay {
+  position: fixed; inset: 0;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.25);
+  z-index: 40;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Card panel (popup) */
+.card-panel {
+  background: white;
+  border-radius: 28px;
+  padding: 2rem;
+  max-width: 540px;
+  width: 92%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.18);
+}
+
+/* Flip card */
+.flip-card { perspective: 1000px; }
+.flip-inner {
+  transition: transform 0.5s cubic-bezier(0.4,0.2,0.2,1);
+  transform-style: preserve-3d;
+  position: relative;
+}
+.flip-inner.flipped { transform: rotateY(180deg); }
+.flip-front, .flip-back {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 16px;
+}
+.flip-back { transform: rotateY(180deg); }
+
+/* Quality buttons */
+.q-btn {
+  border-radius: 16px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 0.95rem;
+  padding: 14px 8px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  color: #1a1a2e;
+}
+.q-btn:hover  { transform: translateY(-4px); }
+.q-btn:active { transform: translateY(1px); }
+
+/* Circle button */
+.circle-btn {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--yellow);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 5px 0 #c8b800, 0 8px 20px rgba(200,180,0,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.circle-btn:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 9px 0 #c8b800, 0 14px 30px rgba(200,180,0,0.3);
+}
+.circle-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #c8b800;
+}
+
+/* Progress bar */
+.prog-track {
+  height: 10px;
+  background: #f0f0f5;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.prog-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #89F5BF, #60CFFF);
+  transition: width 0.8s cubic-bezier(0.34,1.2,0.64,1);
+}
+
+/* Pill badge */
+.pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.fade-up { animation: fadeUp 0.4s ease both; }
+
+@keyframes bounceIn {
+  0%   { transform:scale(0.75); opacity:0; }
+  60%  { transform:scale(1.06); }
+  100% { transform:scale(1); opacity:1; }
+}
+.bounce-in { animation: bounceIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both; }
+
+@keyframes cloudPop {
+  from { opacity:0; transform:translateX(-50%) scale(0.6) translateY(12px); }
+  to   { opacity:1; transform:translateX(-50%) scale(1) translateY(0); }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-8px); }
+}

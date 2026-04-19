@@ -1,0 +1,16 @@
+# Python
+backend/__pycache__/
+backend/.venv/
+backend/venv/
+backend/*.db
+backend/.env
+backend/test_groq.py
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# General
+.env
+*.pyc
+.DS_Store
